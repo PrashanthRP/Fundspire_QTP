@@ -1,7 +1,7 @@
 ﻿Option Explicit
 
 Repositoriescollection.Add ".\FundspireRepository1.tsr"
-Dim FolderName, FundName, TimeStamp, ObjExcel, myFile, mySheet,Rows_Count, i
+Dim FolderName, IndexName, TimeStamp, ObjExcel, myFile, mySheet,Rows_Count, i
 TimeStamp = GetDateTimeStamp
 
 Set ObjExcel = CreateObject("Excel.Application")
@@ -12,10 +12,10 @@ Rows_Count = mySheet.usedrange.rows.Count
 For i = 2 to Rows_Count
 
 FolderName = mySheet.Cells(i, "A")
-FundName = mySheet.Cells(i, "B")
+IndexName = mySheet.Cells(i, "B")
 
 Call Login()
-Call AddFund(FolderName,FundName)
+Call AddIndex(FolderName,IndexName)
 mySheet.Cells(i, "C") = "PASS"
 Call Logout()
 
